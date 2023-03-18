@@ -12,24 +12,56 @@ const Menu = styled.ul`
 const CategoryItem = styled(Text)`
   &:hover {
     background-color: red;
+    color: white;
   }
+`;
+
+const ImageItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-gap: 20px;
 `;
 
 const Shop: React.FC = () => {
   const categories = [
-    'jackets',
-    'shirts',
-    'tops/sweaters',
-    'sweatshirts',
-    'pants',
-    'shorts',
-    't-shirts',
-    'hats',
-    'bags',
+    'all',
+    'comp. vis',
+    'comp. graphics',
+    'sw engineering',
+    'web dev',
+    'ui design',
+    'music',
+    'game dev',
   ];
   const images = [
     { url: 'https://via.placeholder.com/200', subtext: 'Image 1' },
     { url: 'https://via.placeholder.com/200', subtext: 'Image 2' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 3' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 4' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 5' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 6' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 3' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 4' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 5' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 2' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 3' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 4' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 5' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 6' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 3' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 4' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 5' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 2' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 3' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 4' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 5' },
+    { url: 'https://via.placeholder.com/200', subtext: 'Image 6' },
     { url: 'https://via.placeholder.com/200', subtext: 'Image 3' },
     { url: 'https://via.placeholder.com/200', subtext: 'Image 4' },
     { url: 'https://via.placeholder.com/200', subtext: 'Image 5' },
@@ -41,7 +73,7 @@ const Shop: React.FC = () => {
       <Header />
       <Flex flexDirection={'column'} px={3} pt={5}>
         <Flex>
-          <Box width={'25%'}>
+          <Box width={'20%'}>
             <Flex justifyContent={'end'} px={3}>
               <Menu>
                 {categories.map((item, index) => (
@@ -60,21 +92,14 @@ const Shop: React.FC = () => {
               </Menu>
             </Flex>
           </Box>
-          <Box width={'75%'}>
-            <Flex>
-              <Card width={256}>
-                <Image src={'https://via.placeholder.com/200'} />
-                <Heading>text here</Heading>
-              </Card>
-              <Card width={256}>
-                <Image src={'https://via.placeholder.com/200'} />
-                <Heading>text here</Heading>
-              </Card>
-              <Card width={256}>
-                <Image src={'https://via.placeholder.com/200'} />
-                <Heading>text here</Heading>
-              </Card>
-            </Flex>
+          <Box width={'70%'}>
+            <GridContainer>
+              {images.map((image, index) => (
+                <ImageItem key={index}>
+                  <Image width={150} src={image.url} alt={image.subtext} />
+                </ImageItem>
+              ))}
+            </GridContainer>
           </Box>
         </Flex>
       </Flex>
