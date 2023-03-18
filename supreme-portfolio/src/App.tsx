@@ -3,9 +3,9 @@ import { StyledTitle } from './styledComponents';
 
 function App() {
   return (
-      <div className="App">
-        <StyledTitle>Hello, World!</StyledTitle>
-      </div>
+    <div className="App">
+      <StyledTitle>Hello, World!</StyledTitle>
+    </div>
   );
 }
 
