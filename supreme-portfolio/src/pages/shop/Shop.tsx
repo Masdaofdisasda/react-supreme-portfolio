@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Card, Flex, Heading, Text, Image } from 'rebass';
 import styled from 'styled-components';
 import { Header } from '../../components/Header';
+import ShopItem from './components/ShopItem';
 
 const Menu = styled.ul`
   list-style-type: none;
@@ -96,7 +97,7 @@ const Shop: React.FC = () => {
             <GridContainer>
               {images.map((image, index) => (
                 <ImageItem key={index}>
-                  <Image width={150} src={image.url} alt={image.subtext} />
+                  <ShopItem />
                 </ImageItem>
               ))}
             </GridContainer>
