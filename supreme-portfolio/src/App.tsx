@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { StyledTitle } from './pages/styledComponents';
 import Home from './pages/home/Home';
+import Shop from './pages/shop/Shop';
 
 function App() {
   return (
@@ -9,10 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/projects"
-            element={<StyledTitle>projects</StyledTitle>}
-          />
+          <Route path="/shop" element={<Shop />} />
         </Routes>
       </BrowserRouter>
     </div>

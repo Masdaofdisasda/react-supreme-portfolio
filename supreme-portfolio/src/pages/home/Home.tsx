@@ -33,7 +33,7 @@ const StyledLink = styled(RouterLink)`
 `;
 
 const Home: React.FC = () => {
-  const menuItems = ['news', 'shop', 'about', 'stores', 'contact'];
+  const menuItems = ['news', 'shop', 'about', 'resume', 'contact'];
 
   return (
     <Container>
