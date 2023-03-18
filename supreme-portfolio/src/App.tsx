@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { StyledTitle } from './pages/styledComponents';
-import { Home } from './pages/home/Home';
+import Home from './pages/home/Home';
 
 function App() {
   return (
