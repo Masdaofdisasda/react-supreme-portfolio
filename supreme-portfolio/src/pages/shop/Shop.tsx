@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box, Card, Flex, Heading, Text, Image } from 'rebass';
+import { Box, Flex, Text } from 'rebass';
 import styled from 'styled-components';
 import { Header } from '../../components/Header';
 import ShopItem from './components/ShopItem';
+import useShoppingItems from './hooks/useShoppingItems';
 
 const Menu = styled.ul`
   list-style-type: none;
@@ -40,34 +41,8 @@ const Shop: React.FC = () => {
     'music',
     'game dev',
   ];
-  const images = [
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 1' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 2' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 3' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 4' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 5' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 6' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 3' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 4' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 5' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 2' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 3' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 4' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 5' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 6' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 3' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 4' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 5' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 2' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 3' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 4' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 5' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 6' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 3' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 4' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 5' },
-    { url: 'https://via.placeholder.com/200', subtext: 'Image 6' },
-  ];
+
+  const items = useShoppingItems();
 
   return (
     <div>
@@ -95,9 +70,9 @@ const Shop: React.FC = () => {
           </Box>
           <Box width={'70%'}>
             <GridContainer>
-              {images.map((image, index) => (
+              {items.map((item, index) => (
                 <ImageItem key={index}>
-                  <ShopItem />
+                  <ShopItem name={item.name} image={item.image} />
                 </ImageItem>
               ))}
             </GridContainer>
