@@ -1,4 +1,14 @@
-export type Tag = 'CV' | 'CG' | 'SWE' | 'WEBDEV' | 'UI' | 'MUSIC' | 'GAMEDEV';
+import { Dispatch, SetStateAction } from 'react';
+
+export type Tag =
+  | 'CV'
+  | 'CG'
+  | 'SWE'
+  | 'WEBDEV'
+  | 'UI'
+  | 'MUSIC'
+  | 'GAMEDEV'
+  | undefined;
 export const ALL = [
   'CV',
   'CG',
@@ -16,3 +26,14 @@ export type ProjectItem = {
 };
 
 export type ItemProps = Omit<ProjectItem, 'tags'>;
+
+export type TagProps = {
+  tag: TagPair;
+  isSelected: boolean;
+  select: Dispatch<SetStateAction<Tag>>;
+};
+
+export type TagPair = {
+  displayName: String;
+  tag: Tag;
+};

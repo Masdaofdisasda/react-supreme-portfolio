@@ -1,21 +1,17 @@
-import React from 'react';
-import { Box, Flex, Text } from 'rebass';
+import React, { useEffect, useState } from 'react';
+import { Box, Flex } from 'rebass';
 import styled from 'styled-components';
 import { Header } from '../../components/Header';
 import ProjectComponent from './components/ProjectComponent';
 import useProjects from './hooks/useProjects';
+import useProjectTags from './hooks/useProjectTags';
+import { TagComponent } from './components/TagComponent';
+import { Tag } from './Projects.types';
 
 const Menu = styled.ul`
   list-style-type: none;
   margin: 0 0 0;
   padding: 0;
-`;
-
-const CategoryItem = styled(Text)`
-  &:hover {
-    background-color: red;
-    color: white;
-  }
 `;
 
 const ImageItem = styled.div`
@@ -31,18 +27,17 @@ const GridContainer = styled.div`
 `;
 
 const Projects: React.FC = () => {
-  const categories = [
-    'all',
-    'comp. vis',
-    'comp. graphics',
-    'sw engineering',
-    'web dev',
-    'ui design',
-    'music',
-    'game dev',
-  ];
-
+  const tags = useProjectTags();
   const items = useProjects();
+  const [currentTag, setCurrentTag] = useState<Tag>();
+  const [filteredItems, setFilteredItems] = useState(items);
+
+  useEffect(() => {
+    if (currentTag) {
+      const newItems = items.filter((item) => item.tags.includes(currentTag));
+      setFilteredItems(newItems);
+    }
+  }, [currentTag, setCurrentTag]);
 
   return (
     <div>
@@ -52,17 +47,13 @@ const Projects: React.FC = () => {
           <Box width={'20%'}>
             <Flex justifyContent={'end'} px={3}>
               <Menu>
-                {categories.map((item, index) => (
+                {tags.map((tag, index) => (
                   <li key={index}>
-                    <CategoryItem
-                      fontFamily={'Courier New'}
-                      fontSize={12}
-                      color={'black'}
-                      justifyContent={'end'}
-                      textAlign={'right'}
-                    >
-                      {item.toLowerCase()}
-                    </CategoryItem>
+                    <TagComponent
+                      tag={tag}
+                      isSelected={currentTag === tag.tag}
+                      select={setCurrentTag}
+                    />
                   </li>
                 ))}
               </Menu>
@@ -70,7 +61,7 @@ const Projects: React.FC = () => {
           </Box>
           <Box width={'70%'}>
             <GridContainer>
-              {items.map((item, index) => (
+              {filteredItems.map((item, index) => (
                 <ImageItem key={index}>
                   <ProjectComponent name={item.name} image={item.image} />
                 </ImageItem>
