@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import {Box, Flex} from 'rebass';
+import React, { useEffect, useState } from 'react';
+import { Box, Flex } from 'rebass';
 import styled from 'styled-components';
-import {Header} from '../../components/Header';
+import { Header } from '../../components/Header';
 import ProjectComponent from './components/ProjectComponent';
 import useProjects from './hooks/useProjects';
 import useProjectTags from './hooks/useProjectTags';
-import {TagComponent} from './components/TagComponent';
-import {Tag} from './Projects.types';
+import { TagComponent } from './components/TagComponent';
+import { Tag } from './Projects.types';
 
 const Menu = styled.ul`
   list-style-type: none;
@@ -24,6 +24,8 @@ const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   grid-gap: 20px;
+  padding-left: 20px;
+  max-width: 600px;
 `;
 
 const Projects: React.FC = () => {
@@ -40,26 +42,26 @@ const Projects: React.FC = () => {
   }, [currentTag, setCurrentTag]);
 
   return (
-    <div>
+    <>
       <Header />
-      <Flex flexDirection={'column'} px={3} pt={5}>
-        <Flex>
-          <Box width={'20%'}>
+      <Flex flexDirection={'column'} pt={5} width={'100%'}>
+        <Flex justifyContent={'center'} width={'100%'}>
+          <Box width={'150'}>
             <Flex justifyContent={'end'} pt={3} pr={1}>
               <Menu>
                 {tags.map((tag, index) => (
-                    <li key={index}>
-                      <TagComponent
-                          tag={tag}
-                          isSelected={currentTag === tag.tag}
-                          select={setCurrentTag}
-                      />
-                    </li>
+                  <li key={index}>
+                    <TagComponent
+                      tag={tag}
+                      isSelected={currentTag === tag.tag}
+                      select={setCurrentTag}
+                    />
+                  </li>
                 ))}
               </Menu>
             </Flex>
           </Box>
-          <Box width={'70%'}>
+          <Box width={'600px'}>
             <GridContainer>
               {filteredItems.map((item, index) => (
                 <ImageItem key={index}>
@@ -70,7 +72,7 @@ const Projects: React.FC = () => {
           </Box>
         </Flex>
       </Flex>
-    </div>
+    </>
   );
 };
 
