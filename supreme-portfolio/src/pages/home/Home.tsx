@@ -17,7 +17,7 @@ const Item = styled.li`
 `;
 
 const Home: React.FC = () => {
-    const menuItems = useNavItems();
+  const menuItems = useNavItems();
 
   return (
     <>

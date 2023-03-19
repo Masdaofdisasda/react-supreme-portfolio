@@ -8,10 +8,10 @@ import { TagComponent } from './components/TagComponent';
 import { Tag } from './Projects.types';
 import Page from '../../components/Page';
 
-const Menu = styled.ul`
-  list-style-type: none;
-  margin: 0 0 0;
-  padding: 0;
+const ListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 `;
 
 const ImageItem = styled.div`
@@ -47,17 +47,15 @@ const Projects: React.FC = () => {
         <Flex justifyContent={'center'} width={'100%'}>
           <Box width={'150'}>
             <Flex justifyContent={'end'} pt={3} pr={1}>
-              <Menu>
-                {tags.map((tag, index) => (
-                  <li key={index}>
-                    <TagComponent
-                      tag={tag}
-                      isSelected={currentTag === tag.tag}
-                      select={setCurrentTag}
-                    />
-                  </li>
+              <ListContainer>
+                {tags.map((tag) => (
+                  <TagComponent
+                    tag={tag}
+                    isSelected={currentTag === tag.tag}
+                    select={setCurrentTag}
+                  />
                 ))}
-              </Menu>
+              </ListContainer>
             </Flex>
           </Box>
           <Box width={'600px'}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text } from 'rebass';
+import { Flex, Text } from 'rebass';
 import { TagProps } from '../Projects.types';
 
 const CategoryItem = styled(Text)`
@@ -21,16 +21,19 @@ export const TagComponent = ({
   }
 
   return (
-    <CategoryItem
-      fontFamily={'Courier New'}
-      fontSize={12}
-      fontWeight={isSelected ? 'bold' : 'normal'}
-      color={'black'}
-      justifyContent={'end'}
-      textAlign={'right'}
-      onClick={selectTag}
-    >
-      {displayName.toLowerCase()}
-    </CategoryItem>
+    <Flex alignItems={'end'}>
+      <CategoryItem
+        fontFamily={'Courier New'}
+        fontSize={12}
+        fontWeight={isSelected ? 'bold' : 'normal'}
+        color={'black'}
+        justifyContent={'end'}
+        textAlign={'right'}
+        display={'inline-block'}
+        onClick={selectTag}
+      >
+        {displayName.toLowerCase()}
+      </CategoryItem>
+    </Flex>
   );
 };
