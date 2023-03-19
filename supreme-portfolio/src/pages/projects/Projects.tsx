@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Flex } from 'rebass';
 import styled from 'styled-components';
-import { Header } from '../../components/Header';
 import ProjectComponent from './components/ProjectComponent';
 import useProjects from './hooks/useProjects';
 import useProjectTags from './hooks/useProjectTags';
 import { TagComponent } from './components/TagComponent';
 import { Tag } from './Projects.types';
+import Header from '../../components/Header';
 
 const Menu = styled.ul`
   list-style-type: none;

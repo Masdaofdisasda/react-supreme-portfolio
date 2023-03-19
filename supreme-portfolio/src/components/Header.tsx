@@ -1,11 +1,13 @@
-import {Flex} from 'rebass';
-import React from 'react';
-import {Logo} from './Logo';
+import { Flex } from 'rebass';
+import React, { memo } from 'react';
+import { Logo } from './Logo';
 
-export const Header = () => {
+const Header = memo(function Header() {
   return (
     <Flex alignContent={'center'} justifyContent={'center'} pt={6}>
-        <Logo darkBackground={false}/>
+      <Logo darkBackground={false} />
     </Flex>
   );
-};
+});
+
+export default Header;

@@ -1,7 +1,7 @@
 import { ALL, ProjectItem } from '../Projects.types';
 
 function useProjects(): ProjectItem[] {
-  const ShoppingItems = [
+  const items = [
     {
       name: 'Gale–Shapley-Algorithm Algodat',
       image:
@@ -112,7 +112,10 @@ function useProjects(): ProjectItem[] {
     },
   ] as ProjectItem[];
 
-  return ShoppingItems;
+  return items.sort((a, b) => {
+    // @ts-ignore
+    return a.name.localeCompare(b.name);
+  });
 }
 
 export default useProjects;
