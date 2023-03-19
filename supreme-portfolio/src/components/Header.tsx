@@ -1,20 +1,11 @@
-import { Box, Flex } from 'rebass';
+import {Flex} from 'rebass';
 import React from 'react';
+import {Logo} from './Logo';
 
 export const Header = () => {
   return (
     <Flex alignContent={'center'} justifyContent={'center'} pt={6}>
-      <Box
-        bg={'red'}
-        fontFamily={'Futura'}
-        fontStyle={'italic'}
-        fontWeight={'bold'}
-        fontSize={36}
-        px={2}
-        color={'white'}
-      >
-        Wolum
-      </Box>
+        <Logo darkBackground={false}/>
     </Flex>
   );
 };

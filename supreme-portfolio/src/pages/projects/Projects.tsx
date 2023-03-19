@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Flex } from 'rebass';
+import React, {useEffect, useState} from 'react';
+import {Box, Flex} from 'rebass';
 import styled from 'styled-components';
-import { Header } from '../../components/Header';
+import {Header} from '../../components/Header';
 import ProjectComponent from './components/ProjectComponent';
 import useProjects from './hooks/useProjects';
 import useProjectTags from './hooks/useProjectTags';
-import { TagComponent } from './components/TagComponent';
-import { Tag } from './Projects.types';
+import {TagComponent} from './components/TagComponent';
+import {Tag} from './Projects.types';
 
 const Menu = styled.ul`
   list-style-type: none;
@@ -45,16 +45,16 @@ const Projects: React.FC = () => {
       <Flex flexDirection={'column'} px={3} pt={5}>
         <Flex>
           <Box width={'20%'}>
-            <Flex justifyContent={'end'} px={3}>
+            <Flex justifyContent={'end'} pt={3} pr={1}>
               <Menu>
                 {tags.map((tag, index) => (
-                  <li key={index}>
-                    <TagComponent
-                      tag={tag}
-                      isSelected={currentTag === tag.tag}
-                      select={setCurrentTag}
-                    />
-                  </li>
+                    <li key={index}>
+                      <TagComponent
+                          tag={tag}
+                          isSelected={currentTag === tag.tag}
+                          select={setCurrentTag}
+                      />
+                    </li>
                 ))}
               </Menu>
             </Flex>
