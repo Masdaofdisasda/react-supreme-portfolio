@@ -1,7 +1,7 @@
-import {Box, Flex, Text} from 'rebass';
-import React, {useEffect, useState} from 'react';
+import { Box, Flex, Text } from 'rebass';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import {Link as RouterLink} from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
 const StyledLink = styled(RouterLink)`
   text-decoration: none;
@@ -26,12 +26,12 @@ export const Logo = (props: LogoProps) => {
     const formattedMinutes = String(minutes).padStart(2, '0');
 
     setDateTime(
-        `${day}/${month}/${year} ${formattedHours}:${formattedMinutes}${ampm} VIE`
+      `${day}/${month}/${year} ${formattedHours}:${formattedMinutes}${ampm} VIE`
     );
   };
 
   useEffect(() => {
-    updateDateTimeString(); // Initial update when the component mounts
+    updateDateTimeString();
     const interval = setInterval(() => {
       updateDateTimeString();
     }, 60 * 1000); // Update every full minute
@@ -40,30 +40,30 @@ export const Logo = (props: LogoProps) => {
   }, []);
 
   return (
-      <Flex flexDirection={'column'}>
-        <StyledLink to={'/'}>
-          <Box
-              bg={'red'}
-              fontFamily={'Futura'}
-              fontStyle={'italic'}
-              fontWeight={'bold'}
-              fontSize={36}
-              color={'white'}
-              textAlign={'center'}
-          >
-            Wolum
-          </Box>
-        </StyledLink>
-        <Text
-            fontFamily={'Courier New'}
-            fontSize={12}
-            color={props.darkBackground ? 'white' : 'black'}
-            justifyContent={'center'}
-            textAlign={'center'}
-            pt={3}
+    <Flex flexDirection={'column'}>
+      <StyledLink to={'/'}>
+        <Box
+          bg={'red'}
+          fontFamily={'Futura'}
+          fontStyle={'italic'}
+          fontWeight={'bold'}
+          fontSize={36}
+          color={'white'}
+          textAlign={'center'}
         >
-          {dateTime}
-        </Text>
-      </Flex>
+          Wolum
+        </Box>
+      </StyledLink>
+      <Text
+        fontFamily={'Courier New'}
+        fontSize={12}
+        color={props.darkBackground ? 'white' : 'black'}
+        justifyContent={'center'}
+        textAlign={'center'}
+        pt={3}
+      >
+        {dateTime}
+      </Text>
+    </Flex>
   );
 };
