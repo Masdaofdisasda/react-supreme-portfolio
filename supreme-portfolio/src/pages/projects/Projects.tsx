@@ -6,7 +6,7 @@ import useProjects from './hooks/useProjects';
 import useProjectTags from './hooks/useProjectTags';
 import { TagComponent } from './components/TagComponent';
 import { Tag } from './Projects.types';
-import Header from '../../components/Header';
+import Page from '../../components/Page';
 
 const Menu = styled.ul`
   list-style-type: none;
@@ -42,8 +42,7 @@ const Projects: React.FC = () => {
   }, [currentTag, setCurrentTag]);
 
   return (
-    <>
-      <Header />
+    <Page>
       <Flex flexDirection={'column'} pt={5} width={'100%'}>
         <Flex justifyContent={'center'} width={'100%'}>
           <Box width={'150'}>
@@ -72,7 +71,7 @@ const Projects: React.FC = () => {
           </Box>
         </Flex>
       </Flex>
-    </>
+    </Page>
   );
 };
 

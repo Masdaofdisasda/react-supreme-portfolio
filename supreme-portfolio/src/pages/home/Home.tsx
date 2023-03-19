@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import { Flex, Text } from 'rebass';
+import { Flex } from 'rebass';
 import styled from 'styled-components';
 import { Logo } from '../../components/Logo';
 import Background from './components/Background';
+import useNavItems from '../../hooks/useNavItems';
+import StyledLink from '../../components/StyledLink';
 
 const List = styled.ul`
   list-style-type: none;
@@ -12,23 +13,11 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-  padding: 6px 0;
-
-  &:hover {
-    background-color: red;
-  }
-`;
-
-const StyledLink = styled(RouterLink)`
-  text-decoration: none;
-  color: white;
-  &:hover {
-    background-color: red;
-  }
+  padding: 4px 0;
 `;
 
 const Home: React.FC = () => {
-  const menuItems = ['news', 'projects', 'about', 'resume', 'contact'];
+    const menuItems = useNavItems();
 
   return (
     <>
@@ -44,11 +33,7 @@ const Home: React.FC = () => {
         <List>
           {menuItems.map((item, index) => (
             <Item key={index}>
-              <StyledLink to={item}>
-                <Text fontFamily={'Courier New'} fontSize={12}>
-                  {item.toLowerCase()}
-                </Text>
-              </StyledLink>
+              <StyledLink text={item} routeTo={item} darkBackground={true} />
             </Item>
           ))}
         </List>
