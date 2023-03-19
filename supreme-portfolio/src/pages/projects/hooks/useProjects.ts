@@ -1,6 +1,6 @@
-import { ALL, ShoppingItem } from '../Shop.types';
+import { ALL, ProjectItem } from '../Projects.types';
 
-function useShoppingItems(): ShoppingItem[] {
+function useProjects(): ProjectItem[] {
   const ShoppingItems = [
     {
       name: 'Gale–Shapley-Algorithm Algodat',
@@ -110,9 +110,9 @@ function useShoppingItems(): ShoppingItem[] {
         'https://cdn.shopify.com/s/files/1/0644/6861/5398/products/SW67_SS23_WorldFamousHoodedSweatshirt_Purple_720x.jpg?v=1678822302',
       tags: ['MUSIC'],
     },
-  ] as ShoppingItem[];
+  ] as ProjectItem[];
 
   return ShoppingItems;
 }
 
-export default useShoppingItems;
+export default useProjects;

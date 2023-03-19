@@ -9,10 +9,10 @@ export const ALL = [
   'GAMEDEV',
 ] as Tag[];
 
-export type ShoppingItem = {
+export type ProjectItem = {
   name: string;
   image: string;
   tags: Tag[];
 };
 
-export type ItemProps = Omit<ShoppingItem, 'tags'>;
+export type ItemProps = Omit<ProjectItem, 'tags'>;

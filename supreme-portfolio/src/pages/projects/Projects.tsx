@@ -2,8 +2,8 @@ import React from 'react';
 import { Box, Flex, Text } from 'rebass';
 import styled from 'styled-components';
 import { Header } from '../../components/Header';
-import ShopItem from './components/ShopItem';
-import useShoppingItems from './hooks/useShoppingItems';
+import ProjectComponent from './components/ProjectComponent';
+import useProjects from './hooks/useProjects';
 
 const Menu = styled.ul`
   list-style-type: none;
@@ -30,7 +30,7 @@ const GridContainer = styled.div`
   grid-gap: 20px;
 `;
 
-const Shop: React.FC = () => {
+const Projects: React.FC = () => {
   const categories = [
     'all',
     'comp. vis',
@@ -42,7 +42,7 @@ const Shop: React.FC = () => {
     'game dev',
   ];
 
-  const items = useShoppingItems();
+  const items = useProjects();
 
   return (
     <div>
@@ -72,7 +72,7 @@ const Shop: React.FC = () => {
             <GridContainer>
               {items.map((item, index) => (
                 <ImageItem key={index}>
-                  <ShopItem name={item.name} image={item.image} />
+                  <ProjectComponent name={item.name} image={item.image} />
                 </ImageItem>
               ))}
             </GridContainer>
@@ -83,4 +83,4 @@ const Shop: React.FC = () => {
   );
 };
 
-export default Shop;
+export default Projects;

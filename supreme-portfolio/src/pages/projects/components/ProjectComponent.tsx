@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Card, Image, Text } from 'rebass';
-import { ItemProps } from '../Shop.types';
+import { ItemProps } from '../Projects.types';
 
 const StyledCard = styled(Card)`
   &:hover {
@@ -15,7 +15,7 @@ const StyledCard = styled(Card)`
   }
 `;
 
-const ShopItem = ({ image, name }: ItemProps) => {
+const ProjectComponent = ({ image, name }: ItemProps) => {
   return (
     <StyledCard width={150}>
       <Image src={image} />
@@ -32,4 +32,4 @@ const ShopItem = ({ image, name }: ItemProps) => {
   );
 };
 
-export default ShopItem;
+export default ProjectComponent;
