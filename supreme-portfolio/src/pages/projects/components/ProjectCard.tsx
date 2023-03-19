@@ -22,11 +22,11 @@ const StyledLink = styled(RouterLink)`
   text-decoration: none;
 `;
 
-const ProjectComponent = ({ image, name }: ItemProps) => {
+const ProjectCard = ({ images, projectName }: ItemProps) => {
   return (
     <StyledLink to={'/projects/1'}>
       <StyledCard width={150}>
-        <Image src={image} />
+        <Image src={images.at(0)} />
         <Text
           fontFamily={'Courier New'}
           fontSize={12}
@@ -34,11 +34,11 @@ const ProjectComponent = ({ image, name }: ItemProps) => {
           justifyContent={'end'}
           pt={2}
         >
-          {name}
+          {projectName}
         </Text>
       </StyledCard>
     </StyledLink>
   );
 };
 
-export default ProjectComponent;
+export default ProjectCard;

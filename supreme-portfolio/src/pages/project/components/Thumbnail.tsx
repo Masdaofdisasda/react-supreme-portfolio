@@ -1,12 +1,7 @@
 import { Card, Image } from 'rebass';
-import React, { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-
-export type ThumbnailProps = {
-  imgSrc: string;
-  onClick: Dispatch<SetStateAction<string>>;
-  selected: boolean;
-};
+import { ThumbnailProps } from '../ProjectDetail.types';
 
 const StyledCard = styled(Card)`
   &:hover {

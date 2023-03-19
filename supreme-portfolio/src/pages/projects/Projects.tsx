@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Flex } from 'rebass';
 import styled from 'styled-components';
-import ProjectComponent from './components/ProjectComponent';
-import useProjects from './hooks/useProjects';
+import ProjectCard from './components/ProjectCard';
+import useProjects from '../../hooks/useProjects';
 import useProjectTags from './hooks/useProjectTags';
 import { TagComponent } from './components/TagComponent';
 import { Tag } from './Projects.types';
@@ -62,7 +62,10 @@ const Projects: React.FC = () => {
             <GridContainer>
               {filteredItems.map((item, index) => (
                 <ImageItem key={index}>
-                  <ProjectComponent name={item.name} image={item.image} />
+                  <ProjectCard
+                    projectName={item.projectName}
+                    images={item.images}
+                  />
                 </ImageItem>
               ))}
             </GridContainer>

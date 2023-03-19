@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
+import { ProjectItem } from '../../hooks/useProjects';
 
 export type Tag =
   | 'CV'
@@ -18,12 +19,6 @@ export const ALL = [
   'MUSIC',
   'GAMEDEV',
 ] as Tag[];
-
-export type ProjectItem = {
-  name: string;
-  image: string;
-  tags: Tag[];
-};
 
 export type ItemProps = Omit<ProjectItem, 'tags'>;
 

@@ -3,7 +3,7 @@ import Page from '../../components/Page';
 import { Box, Flex, Image, Text } from 'rebass';
 import { Thumbnail } from './components/Thumbnail';
 
-export const Project = () => {
+export const ProjectDetail = () => {
   const [selectedImage, setSelectedImage] = useState(
     'https://cdn.shopify.com/s/files/1/0644/6861/5398/products/SW67_SS23_WorldFamousHoodedSweatshirt_Purple_720x.jpg?v=1678822302'
   );
