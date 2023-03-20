@@ -34,7 +34,7 @@ export const ProjectDetail = () => {
                     fontFamily={'Courier New'}
                     fontSize={12}
                     fontWeight={'bold'}
-                    mr={1}
+                    mr={2}
                   >
                     {technology}
                   </Text>
