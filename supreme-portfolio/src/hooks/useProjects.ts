@@ -1,8 +1,23 @@
-import { ALL, Tag } from '../pages/projects/Projects.types';
+import { Tag } from '../pages/projects/Projects.types';
 import React, { useMemo } from 'react';
-import code from '../images/code.jpg';
-import headphones from '../images/headphones.jpg';
-import universe from '../images/universe.png';
+import galeShapleyAlgo from '../data/galeShapleyAlgo';
+import aStarAlgo from '../data/aStarAlgo';
+import moviePodcast from '../data/moviePodcast';
+import avlSearchTree from '../data/avlSearchTree';
+import barnesHutAlgo from '../data/barnesHutAlgo';
+import rasterizer from '../data/rasterizer';
+import imageProcessing from '../data/imageProcessing';
+import photogrammetry from '../data/photogrammetry';
+import streetSignRecognition from '../data/streetSignRecognition';
+import FashionAppDesign from '../data/fashionAppDesign';
+import paypalCloneDesign from '../data/paypalCloneDesign';
+import greedGame from '../data/greedGame';
+import mailServer from '../data/mailServer';
+import volumeRendering from '../data/volumeRendering';
+import ticketline from '../data/ticketline';
+import portfolio from '../data/portfolio';
+import resume from '../data/resume';
+import wolumMusic from '../data/wolumMusic';
 
 export type ProjectItem = {
   projectName: string; // name of the project that's showcased
@@ -18,96 +33,24 @@ export type ProjectItem = {
 function useProjects(): ProjectItem[] {
   return useMemo(() => {
     const projects = [
-      {
-        projectName: 'Gale–Shapley-Algorithm Algodat',
-        images: [code],
-        tags: ['SWE'],
-      },
-      {
-        projectName: 'A* Algorithm Algodat',
-        images: [headphones],
-        tags: ['SWE'],
-      },
-      {
-        projectName: 'Movie Podcast audividprod',
-        images: [universe],
-        tags: ['MUSIC'],
-      },
-      {
-        projectName: 'AVL search tree Algodat',
-        images: [code],
-        tags: ['SWE'],
-      },
-      {
-        projectName: 'Barnes-Hut-Algorithm EP2',
-        images: [headphones],
-        tags: ['SWE'],
-      },
-      {
-        projectName: 'Rasterizer EVC',
-        images: [universe],
-        tags: ['CG'],
-      },
-      {
-        projectName: 'Image Processing EVC',
-        images: [code],
-        tags: ['CV'],
-      },
-      {
-        projectName: 'Photggrammetry and 3D Modelling EVC',
-        images: [headphones],
-        tags: ['CG', 'CV'],
-      },
-      {
-        projectName: 'Traffic Sign Recognition EDBV',
-        images: [universe],
-        tags: ['CV'],
-      },
-      {
-        projectName: 'Fashion App Design IID',
-        images: [code],
-        tags: ['UI'],
-      },
-      {
-        projectName: 'Paypal design IID',
-        images: [headphones],
-        tags: ['UI'],
-      },
-      {
-        projectName: 'Greed ogl cg',
-        images: [universe],
-        tags: ['CG', 'MUSIC', 'GAMEDEV'],
-      },
-      {
-        projectName: 'mail server ds',
-        images: [code],
-        tags: ['SWE'],
-      },
-      {
-        projectName: 'volume rendering Vis1',
-        images: [headphones],
-        tags: ['CG', 'WEBDEV'],
-      },
-      {
-        projectName: 'Ticketline SEpm',
-        images: [universe],
-        tags: ['SWE', 'WEBDEV'],
-      },
-      {
-        projectName: 'Supreme Portfolio',
-        images: [code],
-        tags: ['WEBDEV'],
-      },
-      {
-        projectName: 'Resume CV',
-        images: [headphones],
-        tags: ALL,
-      },
-      {
-        projectName: 'WOLUM Music',
-        images: [universe],
-        tags: ['MUSIC'],
-      },
+      galeShapleyAlgo,
+      aStarAlgo,
+      moviePodcast,
+      avlSearchTree,
+      barnesHutAlgo,
+      rasterizer,
+      imageProcessing,
+      photogrammetry,
+      streetSignRecognition,
+      FashionAppDesign,
+      paypalCloneDesign,
+      greedGame,
+      mailServer,
+      volumeRendering,
+      ticketline,
+      portfolio,
+      resume,
+      wolumMusic,
     ] as ProjectItem[];
 
     return projects.sort((a, b) => {
