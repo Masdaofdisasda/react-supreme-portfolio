@@ -18,6 +18,7 @@ import ticketline from '../data/ticketline';
 import portfolio from '../data/portfolio';
 import resume from '../data/resume';
 import wolumMusic from '../data/wolumMusic';
+import wendysHorses from '../data/wendysHorses';
 
 export type ProjectItem = {
   projectName: string; // name of the project that's showcased
@@ -48,6 +49,7 @@ function useProjects(): ProjectItem[] {
       mailServer,
       volumeRendering,
       ticketline,
+      wendysHorses,
       portfolio,
       resume,
       wolumMusic,
