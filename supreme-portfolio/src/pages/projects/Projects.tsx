@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import ProjectCard from './components/ProjectCard';
 import useProjects from '../../hooks/useProjects';
 import useProjectTags from './hooks/useProjectTags';
-import { TagComponent } from './components/TagComponent';
+import { AllTagComponent, TagComponent } from './components/TagComponent';
 import { Tag } from './Projects.types';
 import Page from '../../components/Page';
 
@@ -30,16 +30,20 @@ const GridContainer = styled.div`
 
 const Projects: React.FC = () => {
   const tags = useProjectTags();
-  const items = useProjects();
+  const allProjects = useProjects();
   const [currentTag, setCurrentTag] = useState<Tag>();
-  const [filteredItems, setFilteredItems] = useState(items);
+  const [displayedProjects, setDisplayedProjects] = useState(allProjects);
 
   useEffect(() => {
     if (currentTag) {
-      const newItems = items.filter((item) => item.tags.includes(currentTag));
-      setFilteredItems(newItems);
+      const filteredProjects = allProjects.filter((item) =>
+        item.tags.includes(currentTag)
+      );
+      setDisplayedProjects(filteredProjects);
+    } else {
+      setDisplayedProjects(allProjects);
     }
-  }, [currentTag, setCurrentTag, items]);
+  }, [currentTag, setCurrentTag, allProjects]);
 
   return (
     <Page>
@@ -48,6 +52,10 @@ const Projects: React.FC = () => {
           <Box width={'150'}>
             <Flex justifyContent={'end'} pt={3} pr={1}>
               <ListContainer>
+                <AllTagComponent
+                  isSelected={currentTag === undefined}
+                  select={setCurrentTag}
+                />
                 {tags.map((tag) => (
                   <TagComponent
                     tag={tag}
@@ -60,7 +68,7 @@ const Projects: React.FC = () => {
           </Box>
           <Box width={'600px'}>
             <GridContainer>
-              {filteredItems.map((item, index) => (
+              {displayedProjects.map((item, index) => (
                 <ImageItem key={index}>
                   <ProjectCard
                     id={item.id}

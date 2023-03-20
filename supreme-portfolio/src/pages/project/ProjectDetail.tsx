@@ -6,22 +6,15 @@ import { useParams } from 'react-router-dom';
 import useFetchProject from '../../hooks/useFetchProject';
 
 export const ProjectDetail = () => {
-  const [selectedImage, setSelectedImage] = useState(
-    'https://cdn.shopify.com/s/files/1/0644/6861/5398/products/SW67_SS23_WorldFamousHoodedSweatshirt_Purple_720x.jpg?v=1678822302'
-  );
-
   const { id } = useParams();
   const project = useFetchProject(id);
+  const [selectedImage, setSelectedImage] = useState(
+    project?.images.at(0) ?? ''
+  ); // todo add fallback image?
 
   if (!project) {
     return <div>ERROR</div>;
   }
-
-  const images = [
-    'https://cdn.shopify.com/s/files/1/0644/6861/5398/products/SW67_SS23_WorldFamousHoodedSweatshirt_Purple_720x.jpg?v=1678822302',
-    'https://cdn.shopify.com/s/files/1/0644/6861/5398/products/J16_SS23_FlockedDistressedTrucker_Gold02_720x.jpg?v=1678824947',
-    'https://cdn.shopify.com/s/files/1/0644/6861/5398/products/J16_SS23_FlockedDistressedTrucker_Red_D01_720x.jpg?v=1678900524',
-  ];
 
   return (
     <Page>
@@ -51,7 +44,7 @@ export const ProjectDetail = () => {
                 {project.description}
               </Text>
               <Flex mt={2}>
-                {images.map((image) => (
+                {project.images.map((image) => (
                   <Thumbnail
                     imgSrc={image}
                     onClick={setSelectedImage}

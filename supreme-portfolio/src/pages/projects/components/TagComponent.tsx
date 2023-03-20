@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Flex, Text } from 'rebass';
-import { TagProps } from '../Projects.types';
+import { AllTagProps, TagProps } from '../Projects.types';
 
 const CategoryItem = styled(Text)`
   &:hover {
@@ -33,6 +33,29 @@ export const TagComponent = ({
         onClick={selectTag}
       >
         {displayName.toLowerCase()}
+      </CategoryItem>
+    </Flex>
+  );
+};
+
+export const AllTagComponent = ({ isSelected, select }: AllTagProps) => {
+  function selectTag(): void {
+    select(undefined);
+  }
+
+  return (
+    <Flex alignItems={'end'}>
+      <CategoryItem
+        fontFamily={'Courier New'}
+        fontSize={12}
+        fontWeight={isSelected ? 'bold' : 'normal'}
+        color={'black'}
+        justifyContent={'end'}
+        textAlign={'right'}
+        display={'inline-block'}
+        onClick={selectTag}
+      >
+        all
       </CategoryItem>
     </Flex>
   );

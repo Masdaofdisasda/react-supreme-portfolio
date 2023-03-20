@@ -31,6 +31,8 @@ export type TagProps = {
   select: Dispatch<SetStateAction<Tag>>;
 };
 
+export type AllTagProps = Omit<TagProps, 'tag'>;
+
 export type TagPair = {
   displayName: String;
   tag: Tag;
