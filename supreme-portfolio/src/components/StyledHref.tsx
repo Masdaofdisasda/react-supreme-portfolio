@@ -26,7 +26,7 @@ const StyledHref = ({ href, text }: LinkProps) => {
         display={'inline-block'}
         color={'red'}
       >
-        {text.toLowerCase()}
+        {text}
       </StyledText>
     </StyledRouterLink>
   );
