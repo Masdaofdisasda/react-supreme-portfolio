@@ -24,10 +24,10 @@ export type ProjectItem = {
   images: string[]; // links to images
   tags: Tag[]; // Tag for filtering
   //TODO:
-  id?: string; // for 'fetching'
-  technologies?: string[]; // languages & tools used
-  price?: number; // salary increase or somethin WIP
-  description?: React.ReactNode; // Text about the project maybe with links
+  id: string; // for 'fetching'
+  technologies: string[]; // languages & tools used
+  price: number; // salary increase or somethin WIP
+  description: React.ReactNode; // Text about the project maybe with links
 };
 
 function useProjects(): ProjectItem[] {

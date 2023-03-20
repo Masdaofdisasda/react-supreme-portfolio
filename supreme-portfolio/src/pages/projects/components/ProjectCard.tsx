@@ -26,9 +26,9 @@ const StyledLink = styled(RouterLink)`
   text-decoration: none;
 `;
 
-const ProjectCard = ({ images, projectName }: ItemProps) => {
+const ProjectCard = ({ images, projectName, id }: ItemProps) => {
   return (
-    <StyledLink to={'/projects/1'}>
+    <StyledLink to={'/projects/' + id}>
       <StyledCard width={150}>
         <Border>
           <Image src={images.at(0)} />

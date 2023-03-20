@@ -20,7 +20,10 @@ export const ALL = [
   'GAMEDEV',
 ] as Tag[];
 
-export type ItemProps = Omit<ProjectItem, 'tags'>;
+export type ItemProps = Omit<
+  ProjectItem,
+  'tags' | 'technologies' | 'price' | 'description'
+>;
 
 export type TagProps = {
   tag: TagPair;

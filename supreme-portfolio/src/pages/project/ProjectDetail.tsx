@@ -2,11 +2,20 @@ import React, { useState } from 'react';
 import Page from '../../components/Page';
 import { Box, Flex, Image, Text } from 'rebass';
 import { Thumbnail } from './components/Thumbnail';
+import { useParams } from 'react-router-dom';
+import useFetchProject from '../../hooks/useFetchProject';
 
 export const ProjectDetail = () => {
   const [selectedImage, setSelectedImage] = useState(
     'https://cdn.shopify.com/s/files/1/0644/6861/5398/products/SW67_SS23_WorldFamousHoodedSweatshirt_Purple_720x.jpg?v=1678822302'
   );
+
+  const { id } = useParams();
+  const project = useFetchProject(id);
+
+  if (!project) {
+    return <div>ERROR</div>;
+  }
 
   const images = [
     'https://cdn.shopify.com/s/files/1/0644/6861/5398/products/SW67_SS23_WorldFamousHoodedSweatshirt_Purple_720x.jpg?v=1678822302',
@@ -24,19 +33,22 @@ export const ProjectDetail = () => {
           <Box width={2 / 5} pl={2}>
             <Flex flexDirection={'column'}>
               <Text fontFamily={'Courier New'} fontSize={16}>
-                Place project name here
+                {project.projectName}
               </Text>
-              <Text
-                fontFamily={'Courier New'}
-                fontSize={12}
-                fontWeight={'bold'}
-              >
-                list tags and technologies
-              </Text>
+              <Flex>
+                {project.technologies.map((technology) => (
+                  <Text
+                    fontFamily={'Courier New'}
+                    fontSize={12}
+                    fontWeight={'bold'}
+                    mr={1}
+                  >
+                    {technology}
+                  </Text>
+                ))}
+              </Flex>
               <Text fontFamily={'Courier New'} fontSize={12} pt={3}>
-                This is a sample description for the World Famous Hooded
-                Sweatshirt. You can update this description with the actual
-                product details.
+                {project.description}
               </Text>
               <Flex mt={2}>
                 {images.map((image) => (
@@ -48,7 +60,7 @@ export const ProjectDetail = () => {
                 ))}
               </Flex>
               <Text fontFamily={'Courier New'} fontSize={16}>
-                $128
+                {project.price}
               </Text>
             </Flex>
           </Box>

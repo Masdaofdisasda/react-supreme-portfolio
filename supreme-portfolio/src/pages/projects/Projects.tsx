@@ -63,6 +63,7 @@ const Projects: React.FC = () => {
               {filteredItems.map((item, index) => (
                 <ImageItem key={index}>
                   <ProjectCard
+                    id={item.id}
                     projectName={item.projectName}
                     images={item.images}
                   />
