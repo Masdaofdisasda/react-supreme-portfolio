@@ -6,7 +6,7 @@ import moviePodcast from '../data/moviePodcast';
 import avlSearchTree from '../data/avlSearchTree';
 import barnesHutAlgo from '../data/barnesHutAlgo';
 import rasterizer from '../data/rasterizer';
-import imageProcessing from '../data/imageProcessing';
+import cameraSensor from '../data/cameraSensor';
 import photogrammetry from '../data/photogrammetry';
 import streetSignRecognition from '../data/streetSignRecognition';
 import FashionAppDesign from '../data/fashionAppDesign';
@@ -39,7 +39,7 @@ function useProjects(): ProjectItem[] {
       avlSearchTree,
       barnesHutAlgo,
       rasterizer,
-      imageProcessing,
+      cameraSensor,
       photogrammetry,
       streetSignRecognition,
       FashionAppDesign,
