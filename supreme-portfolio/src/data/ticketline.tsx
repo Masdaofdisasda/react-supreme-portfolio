@@ -6,7 +6,7 @@ const ticketline = {
   projectName: 'Ticketline Online Shop',
   images: [universe],
   tags: ['SWE', 'WEBDEV', 'UI'],
-  technologies: ['Java'],
+  technologies: ['Java', 'Figma', 'Git'],
   price: 128,
   description: (
     <Text>

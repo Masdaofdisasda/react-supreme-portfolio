@@ -19,9 +19,15 @@ const fashionAppDesign = {
       "sustainable living".
       <br />
       <br />
-      ECOtoure makes the user aware of his shopping habits and helps combat the
-      fast fashion industry. I pitched the idea originally to the group and
-      created some mockups and later screen designs.
+      <StyledHref
+        href={
+          'https://www.figma.com/proto/uPTZxLSXMX4xorhKLNAld5/IID_Project_Ecouture?page-id=1011%3A3346&node-id=1011-3639&starting-point-node-id=1011%3A3639'
+        }
+        text={'ECOtoure'}
+      />{' '}
+      makes the user aware of his shopping habits and helps combat the fast
+      fashion industry. I pitched the idea originally to the group and created
+      some mockups and later screen designs.
       <br />
       <br />
       We also produced an {''}
