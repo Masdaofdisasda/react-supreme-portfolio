@@ -10,11 +10,15 @@ const StyledCard = styled(Card)`
       font-weight: bold;
     }
 
-    img {
-      border: 1px solid darkgray;
-    }
-
     cursor: pointer;
+  }
+`;
+
+const Border = styled.div`
+  border: 1px solid white;
+
+  &:hover {
+    border: 1px solid darkgray;
   }
 `;
 
@@ -26,7 +30,9 @@ const ProjectCard = ({ images, projectName }: ItemProps) => {
   return (
     <StyledLink to={'/projects/1'}>
       <StyledCard width={150}>
-        <Image src={images.at(0)} />
+        <Border>
+          <Image src={images.at(0)} />
+        </Border>
         <Text
           fontFamily={'Courier New'}
           fontSize={12}

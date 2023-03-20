@@ -39,7 +39,7 @@ const Projects: React.FC = () => {
       const newItems = items.filter((item) => item.tags.includes(currentTag));
       setFilteredItems(newItems);
     }
-  }, [currentTag, setCurrentTag]);
+  }, [currentTag, setCurrentTag, items]);
 
   return (
     <Page>
