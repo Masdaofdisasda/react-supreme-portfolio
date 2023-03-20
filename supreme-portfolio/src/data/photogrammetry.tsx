@@ -1,17 +1,21 @@
-import headphones from '../images/headphones.jpg';
+import img1 from '../images/photogrammetry1.png';
+import img2 from '../images/photogrammetry2.jpg';
+import img3 from '../images/photogrammetry3.jpg';
 import { Text } from 'rebass';
 
 const photogrammetry = {
   id: 'photogrammetry',
   projectName: 'Photogrammetry & 3D Modelling',
-  images: [headphones],
+  images: [img1, img2, img3],
   tags: ['CG', 'CV'],
-  technologies: ['Blender'],
+  technologies: ['Blender,', 'AutoDesk Recap'],
   price: 128,
   description: (
     <Text>
-      This is a sample description for the World Famous Hooded Sweatshirt. You
-      can update this description with the actual product details.
+      This shoe model was created using photogrammetry, which means I took about
+      200 pictures from multiple angles and waited a day for them to be
+      processed, only for it to turn out wrong and I need to try it again. The
+      image was created in Blenders Cycle renderer.
     </Text>
   ),
 };

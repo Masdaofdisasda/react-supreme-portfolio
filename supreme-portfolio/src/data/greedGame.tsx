@@ -9,7 +9,7 @@ const greedGame = {
   projectName: 'Greed 3D Game',
   images: [img1, img2, img3],
   tags: ['CG', 'GAMEDEV', 'MUSIC'],
-  technologies: ['OpenGL,', 'C++'],
+  technologies: ['OpenGL,', 'C++', 'Maya 3D'],
   price: 128,
   description: (
     <Text>
