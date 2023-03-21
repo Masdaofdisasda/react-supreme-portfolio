@@ -12,15 +12,20 @@ const rasterizer = {
   price: 128,
   description: (
     <Text>
-      As part of a lab{' '}
+      In an engaging lab{' '}
       <StyledHref
         href={'https://github.com/Masdaofdisasda/evc-rasterizer'}
         text={'assignment'}
-      />{' '}
-      I had to implement a software rasterizer in a specified framework. This
-      helps to better understand the rendering pipeline. This assignment
-      included line and fill rasterization, color and depth interpolation and
-      viewport clipping.
+      />
+      , I dove headfirst into the world of software rasterization, skillfully
+      implementing it within a specified lab framework. This hands-on experience
+      offered invaluable insights into the inner workings of the GPU and its
+      rendering pipeline. <br />
+      <br />
+      Our adventure encompassed line and fill rasterization, color and depth
+      interpolation, and viewport clipping, resulting in a comprehensive
+      understanding of the intricate process that brings pixels to life on our
+      screens just like the text you are reading now.
     </Text>
   ),
 };

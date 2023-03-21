@@ -11,15 +11,19 @@ const portfolio = {
   price: 128,
   description: (
     <Text>
-      I needed to update my old Wordpress portfolio, so I had the idea of
-      recreating a famous online shop in React and now you are looking at it. It
-      was styled with styled components and some components from Rebass and is
-      deployed with Netlify from the{' '}
+      Breathing new life into my dated WordPress portfolio, I embarked on a
+      mission to recreate the essence of a world famoues online shop using the
+      React framework. You're now witnessing the fruits of that labor!
+      <br />
+      <br /> I've artfully woven together styled components and select Rebass
+      elements to achieve a sleek and minimalistic design. Seamlessly deployed
+      with Netlify from my{' '}
       <StyledHref
         href={'https://github.com/Masdaofdisasda/react-supreme-portfolio'}
-        text={'GitHub repo'}
+        text={'GitHub repository'}
       />
-      .
+      , this revitalized portfolio now stands as a testament to my creativity
+      and technical ability.
       <br />
       <br />
       Supreme please don't sue me.

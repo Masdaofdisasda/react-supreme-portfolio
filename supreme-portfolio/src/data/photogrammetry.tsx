@@ -12,10 +12,12 @@ const photogrammetry = {
   price: 128,
   description: (
     <Text>
-      This shoe model was created using photogrammetry, which means I took about
-      200 pictures from multiple angles and waited a day for them to be
-      processed, only for it to turn out wrong and I need to try it again. The
-      image was created in Blenders Cycle renderer.
+      Introducing this detailed pair of Nike Air Travis Scott 1s, brought to
+      life through the magic of photogrammetry! With over 200 snapshots captured
+      from various angles and patiently waiting for the day-long processing. The
+      final stunning image, rendered with Blender's impressive Cycles
+      path-tracing renderer, stands as a testament to my love for sneakers and
+      computer graphics.
     </Text>
   ),
 };
