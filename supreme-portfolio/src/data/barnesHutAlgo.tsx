@@ -12,18 +12,23 @@ const barnesHutAlgo = {
   price: 128,
   description: (
     <Text>
-      To simulate the movement of upto 10000 planets in real time me and another
-      colleague implemented the Barnes-Hut algorithm which reduces the
-      complexity of the simulation by only looking at clusteres of planets
-      instead of each one. We needed an Oct-tree structure for this algorithm to
-      work, which {''}
+      Get ready to explore the cosmos like never before! My colleague and I
+      brought to life the mesmerizing dance of up to 10,000 planets in
+      real-time, thanks to our implementation of the ingenious Barnes-Hut
+      algorithm. By focusing on clusters of planets rather than each individual
+      celestial body, we've significantly reduced the simulation's complexity.
+      <br />
+      <br />
+      As the mastermind behind the Oct-tree structure crucial to this algorithm,
+      I've ensured a seamless and captivating{' '}
       <StyledHref
         href={
           'https://github.com/Masdaofdisasda/Barnes-Hut_Universe_Simulation/blob/master/src/UniverseTree.java'
         }
-        text={'I implemented'}
-      />
-      .
+        text={'experience'}
+      />{' '}
+      for all you space enthusiasts. So buckle up and prepare to be awed by the
+      waltz of the planets!
     </Text>
   ),
 };

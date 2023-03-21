@@ -13,16 +13,22 @@ const paypalCloneDesign = {
   price: 128,
   description: (
     <Text>
-      In a group of four we designed an{' '}
+      Meet{' '}
       <StyledHref
         href={
           'https://www.figma.com/proto/u0OlazPmlhHkh8X2oQwBc9/Pay2Peer?page-id=0%3A1&node-id=59-6333&starting-point-node-id=59%3A6333'
         }
-        text={'app'}
+        text={'"Pay2Peer"'}
       />{' '}
-      for transferring and requesting money. It can also split a given amount
-      among a group of people and it was designed according to the Material
-      Design guidelines
+      the brainchild of our team of four. We designed a clever app that takes
+      the hassle out of transferring and requesting money, making it a breeze to
+      split expenses among friends.
+      <br />
+      <br />
+      Designed with Material Design guidelines in mind, our app delivers a
+      visually appealing and user-friendly experience that makes managing
+      finances just a bit more enjoyable. Get ready to embrace a more amusing
+      way to handle money!
     </Text>
   ),
 };

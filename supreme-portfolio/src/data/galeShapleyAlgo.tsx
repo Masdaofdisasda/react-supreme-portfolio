@@ -13,9 +13,15 @@ const galeShapleyAlgo = {
   price: 128,
   description: (
     <Text>
-      I implemented the Gale-Shapley algorithm and compared it against other
-      algorithms for solving the Stable Matching Problem. The implementation can
-      be found
+      When it comes to matters of the heart, even algorithms can have their say!
+      I took on the challenge of implementing the Gale-Shapley algorithm, a
+      digital matchmaker that aims to solve the Stable Matching Problem.
+      <br />
+      <br />
+      Pitting it against other algorithms in the love-finding business, I
+      discovered just how powerful a few lines of code can be in finding the
+      perfect pairings. Ready to take a peek into the realm of computational
+      Cupids? Check out my implementation right {''}
       <StyledHref
         href={
           'https://github.com/Masdaofdisasda/dsa-assignments/blob/master/P1/src/main/java/exercise/StudentSolutionImplementation.java'

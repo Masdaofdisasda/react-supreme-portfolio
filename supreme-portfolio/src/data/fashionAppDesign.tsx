@@ -14,29 +14,29 @@ const fashionAppDesign = {
   price: 128,
   description: (
     <Text>
-      Over the course of one semester we had to design and present an app
-      prototype. In our group of four we decided to create a tool for the topic
-      "sustainable living".
-      <br />
-      <br />
+      During a single semester, our team of four embarked on a mission to design
+      and present an app prototype that would tackle the theme of "sustainable
+      living." We joined forces to develop{' '}
       <StyledHref
         href={
           'https://www.figma.com/proto/uPTZxLSXMX4xorhKLNAld5/IID_Project_Ecouture?page-id=1011%3A3346&node-id=1011-3639&starting-point-node-id=1011%3A3639'
         }
         text={'ECOtoure'}
-      />{' '}
-      makes the user aware of his shopping habits and helps combat the fast
-      fashion industry. I pitched the idea originally to the group and created
-      some mockups and later screen designs.
+      />
+      , an innovative tool that encourages users to reflect on their shopping
+      habits and combat the fast fashion industry.
       <br />
       <br />
-      We also produced an {''}
+      As the original visionary behind ECOtoure, I pitched the concept to the
+      group and crafted mockups that eventually evolved into polished screen
+      designs. Our creative collaboration also gave rise to an eye-catching {''}
       <StyledHref
         href={'https://youtu.be/d4uZRdqVliY'}
         text={'advertisement'}
       />{' '}
-      for the app, where I did the music and voice over as well as some of the
-      animations.
+      for the app, showcasing not only my musical ability and voice-over skills
+      but also my flair for animation. Join us in our quest to make the world a
+      more sustainable place, one mindful shopping choice at a time!
     </Text>
   ),
 };

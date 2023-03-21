@@ -12,6 +12,18 @@ const cameraSensor = {
   price: 128,
   description: (
     <Text>
+      When life gives you raw image data, you manipulate it until you get
+      oranges. This nifty{' '}
+      <StyledHref
+        href={'https://github.com/Masdaofdisasda/evc-camera-sensors'}
+        text={'program'}
+      />{' '}
+      can demosaic raw images, apply gamma correction, and set the white balance
+      like a pro. It even generates histograms for the image, making it (almost)
+      the Swiss Army knife of image processing. While I'd love to take all the
+      credit, I must admit that my trusty university lab provided the framework.
+      Regardless, next time you're faced with a pixel puzzle, this script can
+      make it make sense.
       <StyledHref
         href={'https://github.com/Masdaofdisasda/evc-camera-sensors'}
         text={'This program'}

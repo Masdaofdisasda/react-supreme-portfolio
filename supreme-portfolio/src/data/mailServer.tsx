@@ -12,27 +12,28 @@ const mailServer = {
   price: 128,
   description: (
     <Text>
-      In the distributed systems lab I learned to build a basic email server.
-      <br />
-      <br />
-      In the {''}
-      <StyledHref
-        href={'https://github.com/Masdaofdisasda/dslab-assignment-1'}
-        text={'first part'}
-      />{' '}
-      of the lab a message transfer protocol, a message access protocol as well
-      as multithreaded transfer, mailbox and monitoring servers were
-      implemented.
+      Behold! The art of sending electronic pigeons.
       <br />
       <br />
       The{' '}
       <StyledHref
         href={'https://github.com/Masdaofdisasda/dslab-assignment-1'}
-        text={'second part'}
+        text={'first part'}
       />{' '}
-      was a group project were the codebase from the first part was updated with
-      a domain lookup for the servers, a more secure transfer protocol and a way
-      to check for message integrity as well as a command line client interface.
+      of this quest had me figure out a message transfer protocol, a message
+      access protocol, and implementing multithreaded transfer, mailbox, and
+      monitoring servers. Not bad, right?
+      <br />
+      <br />
+      But wait, there's more! In the{' '}
+      <StyledHref
+        href={'https://github.com/Masdaofdisasda/dslab-assignment-1'}
+        text={'second part'}
+      />
+      , my trusty group and I joined forces to upgrade the codebase with domain
+      lookup for servers, a Fort Knox-like secure transfer protocol, a message
+      integrity checker, and a sleek command-line client interface. So if you
+      ever need a digital postmaster, look no further!
     </Text>
   ),
 };

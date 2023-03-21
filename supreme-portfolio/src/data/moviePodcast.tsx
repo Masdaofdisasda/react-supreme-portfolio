@@ -11,15 +11,23 @@ const moviePodcast = {
   price: 128,
   description: (
     <Text>
-      Movies are great especially horror movies but most of them have a horrible
-      story. That's what started{' '}
+      Lights, camera, action! Our{' '}
       <StyledHref
         href={'https://soundcloud.com/user-658205794'}
-        text={'this podcast'}
-      />
-      , which is about three guys reviewing lesser known spooky movies. The
-      intro and outro jingle is from me and if you find the audio to be badly
-      mixed that's also on me.
+        text={'podcast'}
+      />{' '}
+      takes center stage as three cinephiles dive into the world of obscure
+      horror flicks. While we all love a good scare, it's no secret that many
+      spine-chilling films leave us with a hauntingly bad aftertaste when it
+      comes to storylines.
+      <br />
+      <br />
+      That's where we come in, dissecting these hidden gems of terror and
+      sharing our verdicts with fellow thrill-seekers. As the maestro behind the
+      catchy intro and outro jingles, I've set the tone for our eerie escapades.
+      And if you happen to notice any quirky audio mixing, well, that's my
+      signature touch. So join us, if you dare, for a bone-chilling cinematic
+      experience!
     </Text>
   ),
 };
