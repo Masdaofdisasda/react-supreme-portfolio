@@ -9,7 +9,7 @@ const fashionAppDesign = {
   id: 'fashionAppDesign',
   projectName: 'Fashion App "ECOuture"',
   images: [img1, img2, img3, img4],
-  tags: ['UI', 'MUSIC'],
+  tags: ['UI', 'MEDIA'],
   technologies: ['Figma,', 'After Effects,', 'Ableton'],
   price: 128,
   description: (

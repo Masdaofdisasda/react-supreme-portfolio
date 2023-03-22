@@ -7,7 +7,7 @@ export type Tag =
   | 'SWE'
   | 'WEBDEV'
   | 'UI'
-  | 'MUSIC'
+  | 'MEDIA'
   | 'GAMEDEV'
   | undefined;
 export const ALL = [
@@ -16,7 +16,7 @@ export const ALL = [
   'SWE',
   'WEBDEV',
   'UI',
-  'MUSIC',
+  'MEDIA',
   'GAMEDEV',
 ] as Tag[];
 

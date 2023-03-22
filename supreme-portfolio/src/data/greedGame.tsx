@@ -8,7 +8,7 @@ const greedGame = {
   id: 'greedGame',
   projectName: 'Greed 3D Game',
   images: [img1, img2, img3],
-  tags: ['CG', 'GAMEDEV', 'MUSIC'],
+  tags: ['CG', 'GAMEDEV', 'MEDIA'],
   technologies: ['OpenGL,', 'C++,', 'Maya 3D'],
   price: 128,
   description: (

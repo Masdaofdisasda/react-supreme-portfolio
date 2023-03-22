@@ -6,7 +6,7 @@ const moviePodcast = {
   id: 'moviePodcast',
   projectName: 'Behind the Plot Horror Podcast',
   images: [img1],
-  tags: ['MUSIC'],
+  tags: ['MEDIA'],
   technologies: ['Ableton'],
   price: 128,
   description: (

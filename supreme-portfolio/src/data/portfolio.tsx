@@ -6,7 +6,7 @@ const portfolio = {
   id: 'portfolio',
   projectName: 'Supreme Portfolio Website',
   images: [img1],
-  tags: ['WEBDEV'],
+  tags: ['WEBDEV', 'MEDIA'],
   technologies: ['React,', 'Typescript,', 'Rebass'],
   price: 128,
   description: (

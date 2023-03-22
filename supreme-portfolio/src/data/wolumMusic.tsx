@@ -5,7 +5,7 @@ const wolumMusic = {
   id: 'wolumMusic',
   projectName: 'WOLUM Music',
   images: [universe],
-  tags: ['MUSIC'],
+  tags: ['MEDIA'],
   technologies: ['Ableton'],
   price: 128,
   description: (

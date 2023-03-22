@@ -7,7 +7,7 @@ function useProjectTags(): TagPair[] {
     { displayName: 'sw engineering', tag: 'SWE' },
     { displayName: 'web dev', tag: 'WEBDEV' },
     { displayName: 'ui design', tag: 'UI' },
-    { displayName: 'music', tag: 'MUSIC' },
+    { displayName: 'media', tag: 'MEDIA' },
     { displayName: 'game dev', tag: 'GAMEDEV' },
   ] as TagPair[];
   return tags.sort((a, b) => {
