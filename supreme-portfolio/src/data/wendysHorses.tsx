@@ -9,7 +9,7 @@ const wendysHorses = {
   id: 'wendysHorses',
   projectName: 'Information System "Wendy\'s Friends"',
   images: [img1, img2, img3],
-  tags: ['SWE', 'WEBDEV', 'UI'],
+  tags: ['SWE', 'WEBDEV'],
   technologies: ['Spring Boot,', 'Angular,', 'Git'],
   price: 128,
   description: (
@@ -32,7 +32,7 @@ const wendysHorses = {
       <StyledLink
         routeTo={'projects/ticketline'}
         text={'Ticketline'}
-        darkBackground={false}
+        textColor={'red'}
       />{' '}
       project, further deepening my knowledge and expertise in these
       cutting-edge technologies."

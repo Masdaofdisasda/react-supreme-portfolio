@@ -33,7 +33,7 @@ const Home: React.FC = () => {
         <List>
           {menuItems.map((item, index) => (
             <Item key={index}>
-              <StyledLink text={item} routeTo={item} darkBackground={true} />
+              <StyledLink text={item} routeTo={item} textColor={'white'} />
             </Item>
           ))}
         </List>

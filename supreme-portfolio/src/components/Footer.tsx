@@ -16,7 +16,7 @@ const Footer = memo(function Footer() {
         }}
       >
         {navItems.map((item) => (
-          <StyledLink text={item} routeTo={item} darkBackground={false} />
+          <StyledLink text={item} routeTo={item} textColor={'black'} />
         ))}
       </Flex>
     </Flex>

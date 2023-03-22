@@ -6,30 +6,32 @@ import styled from 'styled-components';
 export type LinkProps = {
   routeTo: string;
   text: string;
-  darkBackground: boolean;
+  textColor: 'white' | 'black' | 'red';
 };
 
-const StyledRouterLink = styled(RouterLink)<{ darkBackground: boolean }>`
+const StyledRouterLink = styled(RouterLink)<{
+  textColor: 'white' | 'black' | 'red';
+}>`
   text-decoration: none;
-  color: ${({ darkBackground }) => (darkBackground ? 'white' : 'black')};
+  color: ${(props) => props.textColor};
 `;
 
-const StyledText = styled(Text)<{ darkBackground: boolean }>`
-  color: ${({ darkBackground }) => (darkBackground ? 'white' : 'black')};
+const StyledText = styled(Text)<{ textColor: 'white' | 'black' | 'red' }>`
+  color: ${(props) => props.textColor};
 
   &:hover {
     background-color: red;
     color: white;
   }
 `;
-const StyledLink = ({ routeTo, text, darkBackground }: LinkProps) => {
+const StyledLink = ({ routeTo, text, textColor }: LinkProps) => {
   return (
-    <StyledRouterLink to={'/' + routeTo} darkBackground={darkBackground}>
+    <StyledRouterLink to={'/' + routeTo} textColor={textColor}>
       <StyledText
-        darkBackground={darkBackground}
         fontFamily={'Courier New'}
         fontSize={12}
         display={'inline-block'}
+        textColor={textColor}
       >
         {text.toLowerCase()}
       </StyledText>
