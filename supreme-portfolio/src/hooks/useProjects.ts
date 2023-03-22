@@ -19,6 +19,7 @@ import portfolio from '../data/portfolio';
 import resume from '../data/resume';
 import wolumMusic from '../data/wolumMusic';
 import wendysHorses from '../data/wendysHorses';
+import introCG from '../data/introCG';
 
 export type ProjectItem = {
   projectName: string; // name of the project that's showcased
@@ -46,6 +47,7 @@ function useProjects(): ProjectItem[] {
       FashionAppDesign,
       paypalCloneDesign,
       greedGame,
+      introCG,
       mailServer,
       volumeRendering,
       ticketline,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Page from '../../components/Page';
 import { Box, Flex, Image, Text } from 'rebass';
 import { Thumbnail } from './components/Thumbnail';
@@ -11,6 +11,11 @@ export const ProjectDetail = () => {
   const [selectedImage, setSelectedImage] = useState(
     project?.images.at(0) ?? ''
   ); // todo add fallback image?
+
+  // react to param changes and update image
+  useEffect(() => {
+    setSelectedImage(project?.images.at(0) ?? '');
+  }, [id, project]);
 
   if (!project) {
     return <div>ERROR</div>;
