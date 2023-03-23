@@ -44,9 +44,9 @@ export const Logo = (props: LogoProps) => {
       <StyledLink to={'/'}>
         <Box
           bg={'red'}
-          fontFamily={'Futura'}
+          fontFamily={'futura-pt, sans-serif'}
           fontStyle={'italic'}
-          fontWeight={'bold'}
+          fontWeight={'600'}
           fontSize={36}
           color={'white'}
           textAlign={'center'}
