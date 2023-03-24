@@ -5,7 +5,7 @@ import { Thumbnail } from './components/Thumbnail';
 import { useParams } from 'react-router-dom';
 import useFetchProject from '../../hooks/useFetchProject';
 
-export const ProjectDetail = () => {
+const ProjectDetail = () => {
   const { id } = useParams();
   const project = useFetchProject(id);
   const [selectedImage, setSelectedImage] = useState(
@@ -64,3 +64,5 @@ export const ProjectDetail = () => {
     </Page>
   );
 };
+
+export default ProjectDetail;
