@@ -57,9 +57,6 @@ export const ProjectDetail = () => {
                   />
                 ))}
               </Flex>
-              <Text fontFamily={'Courier New'} fontSize={16}>
-                {project.price}
-              </Text>
             </Flex>
           </Box>
         </Flex>

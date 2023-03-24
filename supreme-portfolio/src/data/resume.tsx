@@ -3,10 +3,10 @@ import { Text } from 'rebass';
 
 const resume = {
   id: 'resume',
-  projectName: 'Resume/CV',
+  projectName: 'Resume/CV WIP',
   images: [headphones],
   tags: ['MEDIA'],
-  technologies: ['Latex'],
+  technologies: ['LaTex'],
   price: 128,
   description: (
     <Text>

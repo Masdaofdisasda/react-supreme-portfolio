@@ -1,12 +1,12 @@
-import universe from '../images/universe.png';
+import img1 from '../images/headphones.jpg';
 import { Text } from 'rebass';
 
 const wolumMusic = {
   id: 'wolumMusic',
-  projectName: 'WOLUM Music',
-  images: [universe],
+  projectName: 'Wolum Music WIP',
+  images: [img1],
   tags: ['MEDIA'],
-  technologies: ['Ableton'],
+  technologies: ['Ableton Live 11,', 'Rekordbox'],
   price: 128,
   description: (
     <Text>
