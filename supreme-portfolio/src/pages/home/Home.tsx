@@ -5,6 +5,7 @@ import { Logo } from '../../components/Logo';
 import Background from './components/Background';
 import useNavItems from '../../hooks/useNavItems';
 import StyledLink from '../../components/StyledLink';
+import { SocialLinks } from './components/SocialLinks';
 
 const List = styled.ul`
   list-style-type: none;
@@ -37,6 +38,7 @@ const Home: React.FC = () => {
             </Item>
           ))}
         </List>
+        <SocialLinks />
       </Flex>
     </>
   );
