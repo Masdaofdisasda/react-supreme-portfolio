@@ -3,7 +3,12 @@ import { useGLTF } from '@react-three/drei';
 import { Mesh, MeshStandardMaterial, PerspectiveCamera, Vector3 } from 'three';
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Bloom, EffectComposer } from '@react-three/postprocessing';
+import {
+  Bloom,
+  DepthOfField,
+  EffectComposer,
+  ToneMapping,
+} from '@react-three/postprocessing';
 
 extend({ PerspectiveCamera });
 
@@ -88,24 +93,33 @@ function Model() {
 }
 
 const Background: React.FC = () => {
+  const lightPosition = new Vector3(2, 20, 1.5);
+
   return (
     <StyledCanvas gl={{ antialias: false }} dpr={[1, 1.5]} shadows>
       <ambientLight intensity={0.2} />
       <directionalLight
         intensity={4}
-        position={[2, 20, 1.5]}
+        position={lightPosition}
         castShadow={true}
         shadow-mapSize={1024}
       />
       <Model />
       <Camera />
       <EffectComposer>
+        <DepthOfField
+          focusDistance={0}
+          focalLength={0.02}
+          bokehScale={1}
+          height={480}
+        />
         <Bloom
           kernelSize={3}
           luminanceThreshold={0.5}
           luminanceSmoothing={0.1}
           intensity={0.7}
         />
+        <ToneMapping maxLuminance={2} middleGrey={0.9} />
       </EffectComposer>
     </StyledCanvas>
   );
