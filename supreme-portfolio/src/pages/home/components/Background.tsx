@@ -1,13 +1,9 @@
 import styled from 'styled-components';
 import { useGLTF } from '@react-three/drei';
+import { Mesh, MeshStandardMaterial, PerspectiveCamera, Vector3 } from 'three';
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber';
 import React, { useCallback, useEffect, useState } from 'react';
-import { ACESFilmicToneMapping, PerspectiveCamera, Vector3 } from 'three';
-import {
-  Bloom,
-  EffectComposer,
-  ToneMapping,
-} from '@react-three/postprocessing';
+import { Bloom, EffectComposer } from '@react-three/postprocessing';
 
 extend({ PerspectiveCamera });
 
@@ -66,6 +62,11 @@ const StyledCanvas = styled(Canvas)`
 `;
 function Model() {
   const gltf = useGLTF('/models/Sponza.gltf');
+  const material = new MeshStandardMaterial({
+    color: 0x696969,
+    roughness: 0.7,
+    metalness: 0,
+  });
 
   useEffect(() => {
     gltf.scene.traverse((child) => {
@@ -73,19 +74,26 @@ function Model() {
         child.castShadow = true;
         child.receiveShadow = true;
       }
+      if (child instanceof Mesh) {
+        child.material = material;
+      }
     });
   }, [gltf]);
 
-  return <primitive object={gltf.scene} position={[0, 0, 0]} />;
+  return (
+    <mesh castShadow={true} receiveShadow={true}>
+      <primitive object={gltf.scene} position={[0, 0, 0]} />
+    </mesh>
+  );
 }
 
 const Background: React.FC = () => {
   return (
     <StyledCanvas gl={{ antialias: false }} dpr={[1, 1.5]} shadows>
-      <ambientLight intensity={5} />
+      <ambientLight intensity={0.2} />
       <directionalLight
-        intensity={5}
-        position={[5, 20, 1]}
+        intensity={4}
+        position={[2, 20, 1.5]}
         castShadow={true}
         shadow-mapSize={1024}
       />
@@ -94,11 +102,10 @@ const Background: React.FC = () => {
       <EffectComposer>
         <Bloom
           kernelSize={3}
-          luminanceThreshold={0.7}
+          luminanceThreshold={0.5}
           luminanceSmoothing={0.1}
-          intensity={3}
+          intensity={0.7}
         />
-        <ToneMapping blendFunction={ACESFilmicToneMapping}/>
       </EffectComposer>
     </StyledCanvas>
   );
