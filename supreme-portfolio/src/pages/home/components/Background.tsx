@@ -1,20 +1,31 @@
-import bg from '../../../images/background.png';
 import styled from 'styled-components';
+import { useGLTF } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
 
-const BackgroundContainer = styled.div`
+const StyledCanvas = styled(Canvas)`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(${bg}) no-repeat center center fixed;
-  background-size: cover;
   z-index: -1;
-  filter: brightness(0.1);
+  background-size: cover;
+  filter: brightness(1);
 `;
 
+function Model() {
+  const gltf = useGLTF('/models/Sponza.gltf');
+  return <primitive object={gltf.scene} position={[0, 0, 0]} />;
+}
+
 const Background: React.FC = () => {
-  return <BackgroundContainer />;
+  return (
+    <StyledCanvas>
+      <ambientLight />
+      <pointLight position={[10, 10, 10]} />
+      <Model />
+    </StyledCanvas>
+  );
 };
 
 export default Background;

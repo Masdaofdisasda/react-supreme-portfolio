@@ -6,11 +6,15 @@ import ProjectDetail from './pages/project/ProjectDetail';
 import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
 import NotFound from './pages/notFound/NotFound';
-import ThreeBackground from './pages/home/components/ThreeBackground';
+import styled from 'styled-components';
+
+const StyledApp = styled.div`
+  height: 100vh;
+`;
 
 function App() {
   return (
-    <div className="App">
+    <StyledApp className={'App'}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -18,11 +22,10 @@ function App() {
           <Route path="/projects/:id" element={<ProjectDetail />} />
           <Route path="/about" element={<About />} />
           <Route path={'/contact'} element={<Contact />} />
-          <Route path={'test'} element={<ThreeBackground />} />
           <Route path={'*'} element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </StyledApp>
   );
 }
 
