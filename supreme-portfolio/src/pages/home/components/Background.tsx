@@ -1,14 +1,38 @@
 import styled from 'styled-components';
 import { useGLTF } from '@react-three/drei';
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber';
-import React, { useEffect } from 'react';
-import { PerspectiveCamera, Vector3 } from 'three';
+import React, { useCallback, useEffect, useState } from 'react';
+import { ACESFilmicToneMapping, PerspectiveCamera, Vector3 } from 'three';
+import {
+  Bloom,
+  EffectComposer,
+  ToneMapping,
+} from '@react-three/postprocessing';
 
 extend({ PerspectiveCamera });
+
+function useMousePosition() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const updateMousePosition = useCallback(
+    (event: { clientX: any; clientY: any }) => {
+      setMousePosition({ x: event.clientX, y: event.clientY });
+    },
+    []
+  );
+
+  useEffect(() => {
+    window.addEventListener('mousemove', updateMousePosition);
+    return () => window.removeEventListener('mousemove', updateMousePosition);
+  }, [updateMousePosition]);
+
+  return mousePosition;
+}
 
 const Camera: React.FC = () => {
   const { camera } = useThree();
   const typedCamera = camera as PerspectiveCamera;
+  const { x, y } = useMousePosition();
 
   useFrame(() => typedCamera.updateMatrixWorld());
 
@@ -16,6 +40,16 @@ const Camera: React.FC = () => {
     typedCamera.position.set(8, 1.8, 0.5);
     typedCamera.lookAt(new Vector3(0, 1.8, 0));
   }, [typedCamera]);
+
+  useEffect(() => {
+    const target = new Vector3(0, 1.8, 0);
+    const xRotation = x * 0.004; // Adjust the multiplier to control the rotation speed
+    const yRotation = y * 0.003;
+
+    target.y += yRotation;
+    target.x += xRotation;
+    typedCamera.lookAt(target);
+  }, [x, y, typedCamera]);
 
   return null;
 };
@@ -48,14 +82,24 @@ function Model() {
 const Background: React.FC = () => {
   return (
     <StyledCanvas gl={{ antialias: false }} dpr={[1, 1.5]} shadows>
+      <ambientLight intensity={5} />
       <directionalLight
         intensity={5}
-        position={[2, 20, 1]}
+        position={[5, 20, 1]}
         castShadow={true}
         shadow-mapSize={1024}
       />
       <Model />
       <Camera />
+      <EffectComposer>
+        <Bloom
+          kernelSize={3}
+          luminanceThreshold={0.7}
+          luminanceSmoothing={0.1}
+          intensity={3}
+        />
+        <ToneMapping blendFunction={ACESFilmicToneMapping}/>
+      </EffectComposer>
     </StyledCanvas>
   );
 };
