@@ -5,7 +5,6 @@ import { Canvas, extend, useFrame, useThree } from '@react-three/fiber';
 import React, { useCallback, useEffect, useState } from 'react';
 import {
   Bloom,
-  DepthOfField,
   EffectComposer,
   ToneMapping,
 } from '@react-three/postprocessing';
@@ -17,7 +16,11 @@ function useMousePosition() {
 
   const updateMousePosition = useCallback(
     (event: { clientX: any; clientY: any }) => {
-      setMousePosition({ x: event.clientX, y: event.clientY });
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      const x = (event.clientX / viewportWidth) * 2 - 1; // convert to normalized device coordinates
+      const y = -(event.clientY / viewportHeight) * 2 + 1; // convert to normalized device coordinates
+      setMousePosition({ x, y });
     },
     []
   );
@@ -34,22 +37,20 @@ const Camera: React.FC = () => {
   const { camera } = useThree();
   const typedCamera = camera as PerspectiveCamera;
   const { x, y } = useMousePosition();
+  const target = new Vector3(0, 1.8, 0);
 
   useFrame(() => typedCamera.updateMatrixWorld());
 
   useEffect(() => {
+    typedCamera.fov = 60;
     typedCamera.position.set(8, 1.8, 0.5);
-    typedCamera.lookAt(new Vector3(0, 1.8, 0));
+    typedCamera.lookAt(target);
   }, [typedCamera]);
 
   useEffect(() => {
-    const target = new Vector3(0, 1.8, 0);
-    const xRotation = x * 0.004; // Adjust the multiplier to control the rotation speed
-    const yRotation = y * 0.003;
-
-    target.y += yRotation;
-    target.x += xRotation;
-    typedCamera.lookAt(target);
+    const yTarget = target.y + y * 0.9;
+    const xTarget = target.x + x * 1.6;
+    typedCamera.lookAt(new Vector3(xTarget, yTarget, target.z));
   }, [x, y, typedCamera]);
 
   return null;
@@ -107,12 +108,6 @@ const Background: React.FC = () => {
       <Model />
       <Camera />
       <EffectComposer>
-        <DepthOfField
-          focusDistance={0}
-          focalLength={0.02}
-          bokehScale={1}
-          height={480}
-        />
         <Bloom
           kernelSize={3}
           luminanceThreshold={0.5}
