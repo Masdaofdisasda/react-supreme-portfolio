@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 import { useGLTF } from '@react-three/drei';
-import { Mesh, MeshStandardMaterial, PerspectiveCamera, Vector3 } from 'three';
+import {
+  Color,
+  Mesh,
+  MeshStandardMaterial,
+  PerspectiveCamera,
+  Vector3,
+} from 'three';
 import { Canvas, extend, useFrame, useThree } from '@react-three/fiber';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   Bloom,
   EffectComposer,
@@ -34,10 +40,14 @@ function useMousePosition() {
 }
 
 const Camera: React.FC = () => {
-  const { camera } = useThree();
+  const { camera, scene } = useThree();
   const typedCamera = camera as PerspectiveCamera;
   const { x, y } = useMousePosition();
-  const target = new Vector3(0, 1.8, 0);
+  const target = useMemo(() => {
+    return new Vector3(0, 1.8, 0);
+  }, []);
+
+  scene.background = new Color(0xffffff);
 
   useFrame(() => typedCamera.updateMatrixWorld());
 
@@ -45,13 +55,13 @@ const Camera: React.FC = () => {
     typedCamera.fov = 60;
     typedCamera.position.set(8, 1.8, 0.5);
     typedCamera.lookAt(target);
-  }, [typedCamera]);
+  }, [typedCamera, target]);
 
   useEffect(() => {
     const yTarget = target.y + y * 0.9;
     const xTarget = target.x + x * 1.6;
     typedCamera.lookAt(new Vector3(xTarget, yTarget, target.z));
-  }, [x, y, typedCamera]);
+  }, [x, y, typedCamera, target.y, target.x, target.z]);
 
   return null;
 };
@@ -64,15 +74,17 @@ const StyledCanvas = styled(Canvas)`
   height: 100%;
   z-index: -1;
   background-size: cover;
-  filter: brightness(1);
+  filter: brightness(0.1);
 `;
 function Model() {
   const gltf = useGLTF('/models/Sponza.gltf');
-  const material = new MeshStandardMaterial({
-    color: 0x696969,
-    roughness: 0.7,
-    metalness: 0,
-  });
+  const material = useMemo(() => {
+    return new MeshStandardMaterial({
+      color: 0x696969,
+      roughness: 0.3,
+      metalness: 0,
+    });
+  }, []);
 
   useEffect(() => {
     gltf.scene.traverse((child) => {
@@ -84,7 +96,7 @@ function Model() {
         child.material = material;
       }
     });
-  }, [gltf]);
+  }, [gltf, material]);
 
   return (
     <mesh castShadow={true} receiveShadow={true}>
@@ -97,14 +109,14 @@ const Background: React.FC = () => {
   const lightPosition = new Vector3(2, 20, 1.5);
 
   return (
-    <StyledCanvas gl={{ antialias: false }} dpr={[1, 1.5]} shadows>
-      <ambientLight intensity={0.2} />
+    <StyledCanvas gl={{ antialias: false }} shadows>
       <directionalLight
-        intensity={4}
+        intensity={5}
         position={lightPosition}
         castShadow={true}
         shadow-mapSize={1024}
       />
+      <hemisphereLight groundColor={0x696969} intensity={0.8} />
       <Model />
       <Camera />
       <EffectComposer>
