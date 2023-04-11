@@ -1,70 +1,16 @@
 import styled from 'styled-components';
-import { useGLTF } from '@react-three/drei';
-import {
-  Color,
-  Mesh,
-  MeshStandardMaterial,
-  PerspectiveCamera,
-  Vector3,
-} from 'three';
-import { Canvas, extend, useFrame, useThree } from '@react-three/fiber';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { PerspectiveCamera, Vector3 } from 'three';
+import { Canvas, extend } from '@react-three/fiber';
+import React from 'react';
 import {
   Bloom,
   EffectComposer,
   ToneMapping,
 } from '@react-three/postprocessing';
+import Camera from './Camera';
+import Sponza from './Sponza';
 
 extend({ PerspectiveCamera });
-
-function useMousePosition() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const updateMousePosition = useCallback(
-    (event: { clientX: any; clientY: any }) => {
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-      const x = (event.clientX / viewportWidth) * 2 - 1; // convert to normalized device coordinates
-      const y = -(event.clientY / viewportHeight) * 2 + 1; // convert to normalized device coordinates
-      setMousePosition({ x, y });
-    },
-    []
-  );
-
-  useEffect(() => {
-    window.addEventListener('mousemove', updateMousePosition);
-    return () => window.removeEventListener('mousemove', updateMousePosition);
-  }, [updateMousePosition]);
-
-  return mousePosition;
-}
-
-const Camera: React.FC = () => {
-  const { camera, scene } = useThree();
-  const typedCamera = camera as PerspectiveCamera;
-  const { x, y } = useMousePosition();
-  const target = useMemo(() => {
-    return new Vector3(0, 1.8, 0);
-  }, []);
-
-  scene.background = new Color(0xffffff);
-
-  useFrame(() => typedCamera.updateMatrixWorld());
-
-  useEffect(() => {
-    typedCamera.fov = 60;
-    typedCamera.position.set(8, 1.8, 0.5);
-    typedCamera.lookAt(target);
-  }, [typedCamera, target]);
-
-  useEffect(() => {
-    const yTarget = target.y + y * 0.9;
-    const xTarget = target.x + x * 1.6;
-    typedCamera.lookAt(new Vector3(xTarget, yTarget, target.z));
-  }, [x, y, typedCamera, target.y, target.x, target.z]);
-
-  return null;
-};
 
 const StyledCanvas = styled(Canvas)`
   position: fixed;
@@ -74,38 +20,10 @@ const StyledCanvas = styled(Canvas)`
   height: 100%;
   z-index: -1;
   background-size: cover;
-  filter: brightness(0.1);
+  filter: brightness(1);
 `;
-function Model() {
-  const gltf = useGLTF('/models/Sponza.gltf');
-  const material = useMemo(() => {
-    return new MeshStandardMaterial({
-      color: 0x696969,
-      roughness: 0.3,
-      metalness: 0,
-    });
-  }, []);
 
-  useEffect(() => {
-    gltf.scene.traverse((child) => {
-      if (child.isObject3D) {
-        child.castShadow = true;
-        child.receiveShadow = true;
-      }
-      if (child instanceof Mesh) {
-        child.material = material;
-      }
-    });
-  }, [gltf, material]);
-
-  return (
-    <mesh castShadow={true} receiveShadow={true}>
-      <primitive object={gltf.scene} position={[0, 0, 0]} />
-    </mesh>
-  );
-}
-
-const Background: React.FC = () => {
+function Background() {
   const lightPosition = new Vector3(2, 20, 1.5);
 
   return (
@@ -117,7 +35,7 @@ const Background: React.FC = () => {
         shadow-mapSize={1024}
       />
       <hemisphereLight groundColor={0x696969} intensity={0.8} />
-      <Model />
+      <Sponza />
       <Camera />
       <EffectComposer>
         <Bloom
@@ -130,6 +48,6 @@ const Background: React.FC = () => {
       </EffectComposer>
     </StyledCanvas>
   );
-};
+}
 
 export default Background;
