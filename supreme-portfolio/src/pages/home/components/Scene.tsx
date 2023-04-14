@@ -1,11 +1,12 @@
 import Sponza from './Sponza';
 import React, { useEffect, useRef } from 'react';
-import { DirectionalLight, Vector3 } from 'three';
+import { DirectionalLight, MeshBasicMaterial, Vector3 } from 'three';
 import {
   Bloom,
   EffectComposer,
   ToneMapping,
 } from '@react-three/postprocessing';
+import { Reflector } from '@react-three/drei';
 
 const Scene = React.memo(function Scene() {
   const lightPosition = new Vector3(2, 20, 1.5);
@@ -36,6 +37,22 @@ const Scene = React.memo(function Scene() {
       <hemisphereLight groundColor={0x696969} intensity={0.8} />
       <fog attach="fog" args={['#ffffff', 1, 50]} />
       <Sponza />
+      <Reflector
+        receiveShadow={true}
+        args={[20, 10]} // Width and height of the reflector plane
+        resolution={512} // Controls the reflector's resolution
+        mirror={0.7} // Controls the reflector's reflectivity (0 to 1)
+        mixBlur={0.5} // Controls the blur of the reflection
+        mixStrength={1} // Controls the strength of the mix effect
+        rotation={[-Math.PI / 2, 0, 0]} // Rotates the reflector to face upwards
+        position={[0, 0, 0]}
+        blur={[150, 50]}
+        depthScale={1.2}
+        minDepthThreshold={0.4}
+        maxDepthThreshold={1.4}
+        depthToBlurRatioBias={1}
+        material={new MeshBasicMaterial({ color: 0x696969 })}
+      />
       <EffectComposer>
         <Bloom
           kernelSize={3}
