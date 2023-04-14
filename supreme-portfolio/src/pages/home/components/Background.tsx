@@ -3,7 +3,7 @@ import { PerspectiveCamera } from 'three';
 import { Canvas, extend } from '@react-three/fiber';
 import React from 'react';
 import Camera from './Camera';
-import { Scene } from './Scene';
+import Scene from './Scene';
 
 extend({ PerspectiveCamera });
 
@@ -20,7 +20,12 @@ const StyledCanvas = styled(Canvas)`
 
 function Background() {
   return (
-    <StyledCanvas gl={{ antialias: false }} shadows>
+    <StyledCanvas
+      gl={{
+        antialias: false
+      }}
+      shadows
+    >
       <Scene />
       <Camera />
     </StyledCanvas>

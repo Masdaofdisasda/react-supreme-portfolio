@@ -7,7 +7,7 @@ import {
   ToneMapping,
 } from '@react-three/postprocessing';
 
-export function Scene() {
+const Scene = React.memo(function Scene() {
   const lightPosition = new Vector3(2, 20, 1.5);
   const lightRef = useRef<DirectionalLight>(null);
 
@@ -34,4 +34,6 @@ export function Scene() {
       </EffectComposer>
     </>
   );
-}
+});
+
+export default Scene;
