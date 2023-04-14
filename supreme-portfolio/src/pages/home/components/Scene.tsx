@@ -1,5 +1,5 @@
 import Sponza from './Sponza';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { DirectionalLight, Vector3 } from 'three';
 import {
   Bloom,
@@ -10,6 +10,18 @@ import {
 const Scene = React.memo(function Scene() {
   const lightPosition = new Vector3(2, 20, 1.5);
   const lightRef = useRef<DirectionalLight>(null);
+  useEffect(() => {
+    if (lightRef.current) {
+      const shadowCamera = lightRef.current.shadow.camera;
+      shadowCamera.left = -10;
+      shadowCamera.right = 10;
+      shadowCamera.top = 10;
+      shadowCamera.bottom = -10;
+      shadowCamera.near = 0.5;
+      shadowCamera.far = 50;
+      shadowCamera.updateProjectionMatrix();
+    }
+  }, []);
 
   return (
     <>
@@ -18,6 +30,7 @@ const Scene = React.memo(function Scene() {
         position={lightPosition}
         castShadow={true}
         shadow-mapSize={[1024, 1024]}
+        shadowBias={0.1}
         ref={lightRef}
       />
       <hemisphereLight groundColor={0x696969} intensity={0.8} />

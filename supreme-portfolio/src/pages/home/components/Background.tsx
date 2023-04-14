@@ -15,14 +15,14 @@ const StyledCanvas = styled(Canvas)`
   height: 100%;
   z-index: -1;
   background-size: cover;
-  filter: brightness(1);
+  filter: brightness(0.2);
 `;
 
 function Background() {
   return (
     <StyledCanvas
       gl={{
-        antialias: false
+        antialias: false,
       }}
       shadows
     >

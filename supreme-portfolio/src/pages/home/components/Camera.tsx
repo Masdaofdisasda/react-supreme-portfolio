@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { Color, PerspectiveCamera, Vector3 } from 'three';
+import { FlyControls } from '@react-three/drei';
 
 function useMousePosition() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -43,12 +44,12 @@ const Camera: React.FC = () => {
   }, [typedCamera, target]);
 
   useEffect(() => {
-    const yTarget = target.y + y * 0.9;
+    const yTarget = target.y + y * 1.6;
     const xTarget = target.x + x * 1.6;
     typedCamera.lookAt(new Vector3(xTarget, yTarget, target.z));
   }, [x, y, typedCamera, target.y, target.x, target.z]);
 
-  return null;
+  return <FlyControls />;
 };
 
 export default Camera;
