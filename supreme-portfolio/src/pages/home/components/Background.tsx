@@ -1,14 +1,9 @@
 import styled from 'styled-components';
-import { PerspectiveCamera, Vector3 } from 'three';
+import { PerspectiveCamera } from 'three';
 import { Canvas, extend } from '@react-three/fiber';
 import React from 'react';
-import {
-  Bloom,
-  EffectComposer,
-  ToneMapping,
-} from '@react-three/postprocessing';
 import Camera from './Camera';
-import Sponza from './Sponza';
+import { Scene } from './Scene';
 
 extend({ PerspectiveCamera });
 
@@ -24,28 +19,10 @@ const StyledCanvas = styled(Canvas)`
 `;
 
 function Background() {
-  const lightPosition = new Vector3(2, 20, 1.5);
-
   return (
-    <StyledCanvas gl={{ antialias: false }} shadows>
-      <directionalLight
-        intensity={5}
-        position={lightPosition}
-        castShadow={true}
-        shadow-mapSize={1024}
-      />
-      <hemisphereLight groundColor={0x696969} intensity={0.8} />
-      <Sponza />
+    <StyledCanvas gl={{ antialias: false, depth: true }} shadows>
+      <Scene />
       <Camera />
-      <EffectComposer>
-        <Bloom
-          kernelSize={3}
-          luminanceThreshold={0.5}
-          luminanceSmoothing={0.1}
-          intensity={0.7}
-        />
-        <ToneMapping maxLuminance={2} middleGrey={0.9} />
-      </EffectComposer>
     </StyledCanvas>
   );
 }
