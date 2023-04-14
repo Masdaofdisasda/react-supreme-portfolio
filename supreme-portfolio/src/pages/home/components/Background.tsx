@@ -20,7 +20,7 @@ const StyledCanvas = styled(Canvas)`
 
 function Background() {
   return (
-    <StyledCanvas gl={{ antialias: false, depth: true }} shadows>
+    <StyledCanvas gl={{ antialias: false }} shadows>
       <Scene />
       <Camera />
     </StyledCanvas>
