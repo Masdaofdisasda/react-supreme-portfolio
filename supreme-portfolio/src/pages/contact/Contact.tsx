@@ -16,6 +16,12 @@ const StyledButton = styled.button`
   text-decoration: none;
   border: none;
   padding: 3px 0.5rem 2px;
+  &:hover {
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    cursor: pointer;
+  }
 `;
 
 const StyledTextArea = styled.textarea`

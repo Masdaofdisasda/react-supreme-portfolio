@@ -7,6 +7,7 @@ import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
 import NotFound from './pages/notFound/NotFound';
 import styled from 'styled-components';
+import Resume from './pages/resume/Resume';
 
 const StyledApp = styled.div`
   height: 100vh;
@@ -21,6 +22,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" element={<ProjectDetail />} />
           <Route path="/about" element={<About />} />
+          <Route path="/resume" element={<Resume />} />
           <Route path={'/contact'} element={<Contact />} />
           <Route path={'*'} element={<NotFound />} />
         </Routes>
