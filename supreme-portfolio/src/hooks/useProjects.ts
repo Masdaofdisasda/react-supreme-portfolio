@@ -19,6 +19,8 @@ import portfolio from '../data/portfolio';
 import resume from '../data/resume';
 import wolumMusic from '../data/wolumMusic';
 import wendysHorses from '../data/wendysHorses';
+import starReport from '../data/starReport';
+import neckbreakVelocityGame from '../data/neckbreakVelocityGame';
 
 export type ProjectItem = {
   projectName: string; // name of the project that's showcased
@@ -53,6 +55,8 @@ function useProjects(): ProjectItem[] {
       portfolio,
       resume,
       wolumMusic,
+      starReport,
+      neckbreakVelocityGame,
     ] as ProjectItem[];
 
     return projects.sort((a, b) => {
